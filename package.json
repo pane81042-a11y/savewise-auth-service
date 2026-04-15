@@ -1,0 +1,32 @@
+{
+  "name": "savewise-auth-service",
+  "version": "1.0.0",
+  "description": "SaveWise Auth Service is the authentication and account security service for the SaveWise platform.",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "seed": "node src/seeds/seedUsers.js",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pane81042-a11y/savewise-auth-service.git"
+  },
+  "keywords": [
+    "savewise",
+    "mern",
+    "authentication",
+    "auth-service",
+    "express",
+    "mongodb"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/pane81042-a11y/savewise-auth-service/issues"
+  },
+  "homepage": "https://github.com/pane81042-a11y/savewise-auth-service#readme"
+}
