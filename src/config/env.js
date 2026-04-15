@@ -9,6 +9,10 @@ const env = {
     clientUrl: process.env.CLIENT_URL || 'http://localhost:5173',
     apiUrl: process.env.API_URL || 'http://localhost:5000',
 
+    allowedOrigins: process.env.ALLOWED_ORIGINS
+        ? process.env.ALLOWED_ORIGINS.split(',')
+        : [clientUrl, apiUrl],
+
     jwtSecret: process.env.JWT_SECRET || '',
     jwtExpiresIn: process.env.JWT_EXPIRES_IN || '15m',
 
