@@ -6,13 +6,15 @@ import cookieParser from "cookie-parser";
 import rateLimit from "express-rate-limit";
 
 import env from "./config/env.js";
+import notFound from "./middleware/notFound.js";
+import errorHandler from "./middleware/errorHandler.js";
 
 const app = express();
 
 app.use(
     cors({
         origin: [env.clientUrl, env.apiUrl],
-        credentials: true,
+        credentials: true
     })
 );
 
@@ -30,7 +32,7 @@ const globalLimiter = rateLimit({
         message: 'Too many requests. Please try again later.'
     },
     standardHeaders: true,
-    legacyHeaders: false
+    legacyHeaders: false,
 });
 
 app.use(globalLimiter);
@@ -41,5 +43,8 @@ app.get('/health', (req, res) => {
         message: 'SaveWise auth service is running'
     });
 });
+
+app.use(notFound);
+app.use(errorHandler);
 
 export default app;
